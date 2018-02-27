@@ -1,5 +1,7 @@
 package principle;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,8 @@ import java.util.List;
  * 样例：使用Java示例一个图书销售模块，遇所有图书需要9折的扩展的简单例子
  */
 public class OCP {
+    //发生修改时只需要修改类名principle.OffNovelBook（可在配置文件中配置类名）
+    public final static String BookClassName="principle.NovelBook";//principle.OffNovelBook
     public static void main(String []args){
         BookStore bookStore=new BookStore();
         bookStore.showBooks();
@@ -24,19 +28,32 @@ public class OCP {
  */
 class BookStore{
     private List<IBook> bookList=new ArrayList<>();
-    //实例初始化
+    //实例初始化，演示数据载入
     {
-        bookList.add(new NovelBook("西游记",88.8));
-        bookList.add(new NovelBook("西游记续集",88.9));
-        bookList.add(new NovelBook("三国演义",89.8));
-        bookList.add(new NovelBook("水浒传",89.9));
-    }
-    //实例初始化2，修改后的，可能这样也不太好
-    {
-        bookList.add(new OffNovelBook("西游记",88.8));
-        bookList.add(new OffNovelBook("西游记续集",88.9));
-        bookList.add(new OffNovelBook("三国演义",89.8));
-        bookList.add(new OffNovelBook("水浒传",89.9));
+        //当需要新增售卖规则时不修改原程序而使用扩展方式，这里使用反射类，类名可通过配置文件配置
+        try {
+            try {
+                Constructor bookClassConstructor = Class.forName(OCP.BookClassName).getConstructor(String.class, double.class);
+                try {
+                    bookList.add((IBook) bookClassConstructor.newInstance("西游记", 88.8));
+                    bookList.add((IBook) bookClassConstructor.newInstance("西游记续集", 88.9));
+                    bookList.add((IBook) bookClassConstructor.newInstance("三国演义", 89.8));
+                    bookList.add((IBook) bookClassConstructor.newInstance("水浒传", 89.9));
+                } catch (InstantiationException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                }
+
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
