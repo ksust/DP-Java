@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Created by yugao on 2018/2/26.
- * 六大原则
+ * 七大原则
  * 开闭原则 Open-Closed Principle,OCP
  * 描述：一个软件实体应当对扩展开放，对修改关闭
  * 作用：是OOP最基础的原则，起到总指导作用，其他原则为OCP的具体形态

@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Created by yugao on 2018/2/26.
- * 六大原则
+ * 七大原则
  * 单一职责原则 Single Responsibility Principle
  * 概述：一个类应当只有一个引起它变化的原因，即在定义对象职责时需要考虑职责与对象间是否真正具有所属关系
  * Java：如Java Web中分层的思想（如service、dal、controller层等）就体现单一职责

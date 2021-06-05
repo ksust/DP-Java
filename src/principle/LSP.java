@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Created by yugao on 2018/2/26.
- * 六大原则
+ * 七大原则
  * 里式替换原则：Liskov Substitution Principle
  * 概述：父类能出现的地方子类就可以出现，即将父类替换成子类不会有影响（反过来不成立）
  * Java：该原则简单实现类似OO中的多态，即使用父类抽象方法做统一接口，使用父类引用子类对象

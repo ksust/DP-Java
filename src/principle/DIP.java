@@ -2,7 +2,7 @@ package principle;
 
 /**
  * Created by yugao on 2018/2/26.
- * 六大原则
+ * 七大原则
  * 依赖倒置原则 Dependence Inversion Principle，DIP
  * 概述：高层模块、细节模块（实现类）都应该依赖其抽象（接口类、抽象类）
  * 作用：是实现开闭原则的重要途径，使得成员变动对项目影响极小

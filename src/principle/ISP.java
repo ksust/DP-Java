@@ -2,7 +2,7 @@ package principle;
 
 /**
  * Created by yugao on 2018/2/26.
- * 六大原则
+ * 七大原则
  * 接口隔离原则 Interface Segregation Principle，ISP
  * 描述：客户端（调用接口的类）不应该依赖它不需要的接口（类间的依赖关系应该建立在最小依赖上）
  * 作用：值提供调用者需要的方法，屏蔽不需要的方法，防止接口污染
